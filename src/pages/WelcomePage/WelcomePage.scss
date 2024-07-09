@@ -1,0 +1,31 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.welcome {
+  min-height: 100vh;
+  background-image: url("../../assets/images/background.jpg");
+
+  &__heading {
+    margin: 1.5rem;
+    text-align: center;
+    font-family: $font-family;
+    color: $primary-color-1;
+  }
+
+  &__para {
+    text-align: center;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  &__button {
+    margin-top: 1rem;
+
+    &--sign-in {
+      background-color: $secondary-color-2;
+      color: $primary-color-1;
+    }
+  }
+}
