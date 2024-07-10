@@ -143,3 +143,35 @@ img {
     }
   }
 }
+
+.avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: white;
+
+  &--feed {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    @include tablet {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}

@@ -1,0 +1,76 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.left-sidebar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $secondary-color-2;
+  color: $primary-color-2;
+  padding: 10px 16px;
+  position: relative;
+  overflow: scroll;
+  border-bottom: 1px solid $base-color;
+
+  @include tablet {
+    padding: 22px 36px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: start;
+    right: 0;
+    gap: 0.5rem;
+    flex: 2;
+    padding: 1rem;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 103px);
+    flex-direction: column;
+    z-index: 0;
+  }
+
+  @include desktop {
+    flex: 1;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    @include desktop {
+      justify-content: start;
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__content {
+    display: none;
+
+    @include desktop {
+      font-weight: 600;
+      display: flex;
+    }
+  }
+}
+
+.logo {
+  @include desktop {
+    display: none;
+  }
+}

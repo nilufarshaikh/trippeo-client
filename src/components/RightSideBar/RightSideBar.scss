@@ -1,0 +1,72 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.right-sidebar {
+  display: none;
+
+  @include desktop {
+    flex: 1.5;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// .card-box {
+//   position: relative;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: row;
+//   gap: 1rem;
+// }
+
+// .card {
+//   position: relative;
+//   width: 100px;
+//   height: 200px;
+//   background: white;
+//   border-radius: 8px;
+//   overflow: hidden;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   transition: transform 0.3s;
+// }
+
+// .card img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .card-title {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+//   display: flex;
+//   align-items: center;
+//   background: rgba(0, 0, 0, 0.5);
+//   padding: 5px 10px;
+//   border-radius: 4px;
+// }
+
+// .card-title h3 {
+//   margin: 0 0 0 10px;
+//   font-size: 1em;
+//   color: white;
+// }
+
+// .icon {
+//   width: 24px;
+//   height: 24px;
+//   background-size: cover;
+// }
+
+// .icon-1 {
+//   background-image: url("icon1.png");
+// }

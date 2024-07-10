@@ -1,0 +1,92 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border-top: 1px solid $base-color;
+  background-color: $secondary-color-2;
+  color: $primary-color-2;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  @include tablet {
+    padding: 16px 0;
+    border-top: none;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  @include desktop {
+    top: 0;
+    left: 0;
+    height: 50px;
+    justify-content: right;
+    gap: 16px;
+    border-top: none;
+    border-bottom: 1px solid gray;
+    align-items: center;
+  }
+}
+
+.search-form {
+  @include desktop {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    order: -1;
+    margin-right: 15%;
+  }
+
+  &__icon {
+    @include desktop {
+      display: none !important;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      width: 24rem;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include desktop {
+      display: block;
+      width: 120px;
+    }
+  }
+}
+
+.profile {
+  @include desktop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 1rem;
+  }
+
+  &__name {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  &__more {
+    display: none !important;
+
+    @include desktop {
+      display: flex !important;
+    }
+  }
+}

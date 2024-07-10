@@ -1,10 +1,11 @@
 import "./LoginPage.scss";
+
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
-import { useEffect, useState } from "react";
 import validator from "validator";
+import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import FlashMessage from "../../components/FlashMessage/FlashMessage";
+import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 
 const loginURL = `${import.meta.env.VITE_API_URL}/auth/login`;
 
@@ -15,7 +16,7 @@ const LoginPage = () => {
     const isAuthenticated = !!sessionStorage.getItem("token");
 
     if (isAuthenticated) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [navigate]);
 
@@ -71,7 +72,7 @@ const LoginPage = () => {
       const response = await axios.post(loginURL, formData);
       sessionStorage.setItem("token", response.data.token);
 
-      navigate("/dashboard");
+      navigate("/home");
     } catch (err) {
       setFlashMessage({
         message: err.response.data.message,

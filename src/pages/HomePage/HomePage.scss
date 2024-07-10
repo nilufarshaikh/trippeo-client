@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.home-header {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    width: 100%;
+    top: 0;
+    background: $secondary-color-2;
+    padding: 24px 16px;
+    z-index: 1;
+    position: fixed;
+    border-bottom: 1px solid $base-color;
+  }
+}
+
+.home {
+  min-height: 100vh;
+
+  @include desktop {
+    display: flex;
+    position: relative;
+    top: 70px;
+  }
+}
