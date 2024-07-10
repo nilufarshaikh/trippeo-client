@@ -2,13 +2,23 @@ import "./LoginPage.scss";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import validator from "validator";
 import FlashMessage from "../../components/FlashMessage/FlashMessage";
 
 const loginURL = `${import.meta.env.VITE_API_URL}/auth/login`;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticated = !!sessionStorage.getItem("token");
+
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,8 +39,6 @@ const LoginPage = () => {
       [name]: value,
     });
   };
-
-  const navigate = useNavigate();
 
   const validateForm = () => {
     let validationErrors = {};
@@ -62,7 +70,8 @@ const LoginPage = () => {
     try {
       const response = await axios.post(loginURL, formData);
       sessionStorage.setItem("token", response.data.token);
-      navigate("/");
+
+      navigate("/dashboard");
     } catch (err) {
       setFlashMessage({
         message: err.response.data.message,
