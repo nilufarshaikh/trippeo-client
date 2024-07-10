@@ -18,11 +18,13 @@ const Register = () => {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [flashMessage, setFlashMessage] = useState({ message: "", type: "" });
+  const [flashMessage, setFlashMessage] = useState({
+    message: "",
+    type: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
 
     setFormData({
       ...formData,
@@ -84,15 +86,14 @@ const Register = () => {
       }
 
       setFlashMessage({
-        message: "User registered successfully",
+        message: "Account created successfully",
         type: "success",
       });
 
       navigate("/login");
     } catch (err) {
-      console.error(err);
       setFlashMessage({
-        message: "Something went wrong. Please try after some time.",
+        message: err.response.data.message,
         type: "error",
       });
     }
