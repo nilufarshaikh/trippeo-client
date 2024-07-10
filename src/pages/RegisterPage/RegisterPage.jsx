@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import axios from "axios";
 import validator from "validator";
+import FlashMessage from "../../components/FlashMessage/FlashMessage";
 
 const registerURL = `${import.meta.env.VITE_API_URL}/auth/register`;
 
@@ -14,11 +15,15 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [flashMessage, setFlashMessage] = useState({ message: "", type: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
+
     setFormData({
       ...formData,
       [name]: value,
@@ -26,22 +31,6 @@ const Register = () => {
   };
 
   const navigate = useNavigate();
-
-  const handleRegister = async (event) => {
-    event.preventDefault();
-    validateForm();
-    setSubmitted(true);
-
-    if (Object.keys(errors).length === 0) {
-      try {
-        const $response = await axios.post(registerURL, formData);
-        navigate("/");
-        // navigate("/login");
-      } catch (error) {
-        console.error(`Error signing up: ${error}`);
-      }
-    }
-  };
 
   const validateForm = () => {
     let validationErrors = {};
@@ -70,11 +59,56 @@ const Register = () => {
       validationErrors.confirmPassword = "Passwords do not match";
     }
 
+    return validationErrors;
+  };
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+
+    const validationErrors = validateForm();
     setErrors(validationErrors);
+    setSubmitted(true);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    try {
+      const $response = await axios.post(registerURL, formData);
+
+      if (!$response.data.success) {
+        setFlashMessage({
+          message: $response.data.message,
+          type: "error",
+        });
+      }
+
+      setFlashMessage({
+        message: "User registered successfully",
+        type: "success",
+      });
+
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+      setFlashMessage({
+        message: "Something went wrong. Please try after some time.",
+        type: "error",
+      });
+    }
+  };
+
+  const closeFlashMessage = () => {
+    setFlashMessage({ message: "", type: "" });
   };
 
   return (
     <section className="register onboarding">
+      <FlashMessage
+        message={flashMessage.message}
+        type={flashMessage.type}
+        onClose={closeFlashMessage}
+      />
       <div className="register__wrapper onboarding__container">
         <form
           onSubmit={handleRegister}
