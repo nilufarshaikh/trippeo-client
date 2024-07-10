@@ -104,7 +104,7 @@ const Register = () => {
   };
 
   return (
-    <section className="register onboarding">
+    <main className="register onboarding">
       <FlashMessage
         message={flashMessage.message}
         type={flashMessage.type}
@@ -200,7 +200,7 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </section>
+    </main>
   );
 };
 

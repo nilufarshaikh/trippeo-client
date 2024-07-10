@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login {
+  background-image: url("../../assets/images/background.jpg");
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__label {
+    margin: 8px 0 4px 0;
+
+    &--remember {
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      margin: 8px 0;
+
+      @include tablet {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__link {
+    margin: 8px 0;
+    color: $primary-color-1;
+    font-size: 11px;
+
+    @include tablet {
+      font-size: 12px;
+    }
+  }
+
+  &__create-account {
+    padding-top: 4px;
+  }
+}
+
+.create-account {
+  text-decoration: none;
+
+  &__text {
+    margin-left: 4px;
+    color: $primary-color-1;
+  }
+
+  &__icon {
+    width: 13px !important;
+    fill: $primary-color-1 !important;
+    margin: -8px 2px;
+  }
+}
