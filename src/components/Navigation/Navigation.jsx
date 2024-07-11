@@ -4,13 +4,24 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import avatar from "../../assets/images/mohan-muruge.jpg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 
 import "./Navigation.scss";
+import { useState } from "react";
 
-const Navigation = () => {
+const Navigation = ({ setCurrentPage }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="navbar">
-      <HomeOutlinedIcon className="navbar__icons" />
+      <HomeOutlinedIcon
+        className="navbar__icons"
+        onClick={() => setCurrentPage("feed")}
+      />
       <form className="search-form" id="searchForm">
         <SearchOutlinedIcon className="search-form__icon navbar__icons" />
         <input
@@ -24,12 +35,29 @@ const Navigation = () => {
       </form>
       <AddOutlinedIcon className="navbar__icons navbar__icons--create-story-icon" />
       <NotificationsNoneOutlinedIcon className="navbar__icons" />
-      <div className="profile">
-        <div className="avatar">
-          <img className="avatar__image" src={avatar} alt="Avatar" />
+      <div className="profile" onClick={toggleDropdown}>
+        <div className="profile__wrapper">
+          <PermIdentityOutlinedIcon
+            className="profile__icon"
+            onClick={() => setCurrentPage("profile")}
+          />
+          <div className="profile__avatar avatar">
+            <img className="avatar__image" src={avatar} alt="Avatar" />
+          </div>
+          <span className="profile__name">Mohan Muruge</span>
+          <KeyboardArrowDownIcon className="profile__menu" />
+          {isOpen && (
+            <ul className="profile__menu-list">
+              <li
+                className="profile__menu-item"
+                onClick={() => setCurrentPage("profile")}
+              >
+                Profile
+              </li>
+              <li className="profile__menu-item">Logout</li>
+            </ul>
+          )}
         </div>
-        <span className="profile__name">Mohan Muruge</span>
-        <KeyboardArrowDownIcon className="profile__more" />
       </div>
     </nav>
   );

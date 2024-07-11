@@ -6,8 +6,10 @@ import LeftSideBar from "../../components/LeftSideBar/LeftSideBar";
 import Feed from "../../components/Feed/Feed";
 import RightSideBar from "../../components/RightSideBar/RightSideBar";
 import Navigation from "../../components/Navigation/Navigation";
+import Profile from "../../components/Profile/Profile";
 
 const HomePage = () => {
+  const [currentPage, setCurrentPage] = useState("feed");
   const [failedAuth, setFailedAuth] = useState(false);
   const navigate = useNavigate();
 
@@ -31,10 +33,11 @@ const HomePage = () => {
     <main className="home">
       <div className="container">
         <LeftSideBar />
-        <Feed />
+        {currentPage === "feed" && <Feed />}
+        {currentPage === "profile" && <Profile />}
         <RightSideBar />
       </div>
-      <Navigation />
+      <Navigation setCurrentPage={setCurrentPage} />
     </main>
   );
 };
