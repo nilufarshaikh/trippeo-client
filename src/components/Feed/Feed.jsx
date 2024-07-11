@@ -30,11 +30,11 @@ const Feed = () => {
           </div>
           <div className="">
             <div>
-              <h2>Best time to visit:</h2>
+              <h3>Best time to visit:</h3>
               <p>September - December</p>
             </div>
             <div>
-              <h2>Places to see:</h2>
+              <h3>Places to see:</h3>
               <div>
                 <img src="" alt="" />
                 <img src="" alt="" />
@@ -42,7 +42,7 @@ const Feed = () => {
               </div>
             </div>
             <div>
-              <h2>Local foods to try:</h2>
+              <h3>Local foods to try:</h3>
               <p>
                 Rajasthani Thali from <span>Maharaja Hotel, Agra</span>
               </p>
@@ -51,7 +51,7 @@ const Feed = () => {
               </p>
             </div>
             <div>
-              <h2>Additional Notes or Tips:</h2>
+              <h3>Additional Notes or Tips:</h3>
               <p>Carry warm clothes.</p>
             </div>
           </div>
@@ -96,11 +96,11 @@ const Feed = () => {
           </div>
           <div className="">
             <div>
-              <h2>Best time to visit:</h2>
+              <h3>Best time to visit:</h3>
               <p>September - December</p>
             </div>
             <div>
-              <h2>Places to see:</h2>
+              <h3>Places to see:</h3>
               <div>
                 <img src="" alt="" />
                 <img src="" alt="" />
@@ -108,7 +108,7 @@ const Feed = () => {
               </div>
             </div>
             <div>
-              <h2>Local foods to try:</h2>
+              <h3>Local foods to try:</h3>
               <p>
                 Rajasthani Thali from <span>Maharaja Hotel, Agra</span>
               </p>
@@ -117,7 +117,7 @@ const Feed = () => {
               </p>
             </div>
             <div>
-              <h2>Additional Notes or Tips:</h2>
+              <h3>Additional Notes or Tips:</h3>
               <p>Carry warm clothes.</p>
             </div>
           </div>
@@ -162,11 +162,11 @@ const Feed = () => {
           </div>
           <div className="">
             <div>
-              <h2>Best time to visit:</h2>
+              <h3>Best time to visit:</h3>
               <p>September - December</p>
             </div>
             <div>
-              <h2>Places to see:</h2>
+              <h3>Places to see:</h3>
               <div>
                 <img src="" alt="" />
                 <img src="" alt="" />
@@ -174,7 +174,7 @@ const Feed = () => {
               </div>
             </div>
             <div>
-              <h2>Local foods to try:</h2>
+              <h3>Local foods to try:</h3>
               <p>
                 Rajasthani Thali from <span>Maharaja Hotel, Agra</span>
               </p>
@@ -183,7 +183,7 @@ const Feed = () => {
               </p>
             </div>
             <div>
-              <h2>Additional Notes or Tips:</h2>
+              <h3>Additional Notes or Tips:</h3>
               <p>Carry warm clothes.</p>
             </div>
           </div>
@@ -228,11 +228,11 @@ const Feed = () => {
           </div>
           <div className="">
             <div>
-              <h2>Best time to visit:</h2>
+              <h3>Best time to visit:</h3>
               <p>September - December</p>
             </div>
             <div>
-              <h2>Places to see:</h2>
+              <h3>Places to see:</h3>
               <div>
                 <img src="" alt="" />
                 <img src="" alt="" />
@@ -240,7 +240,7 @@ const Feed = () => {
               </div>
             </div>
             <div>
-              <h2>Local foods to try:</h2>
+              <h3>Local foods to try:</h3>
               <p>
                 Rajasthani Thali from <span>Maharaja Hotel, Agra</span>
               </p>
@@ -249,7 +249,7 @@ const Feed = () => {
               </p>
             </div>
             <div>
-              <h2>Additional Notes or Tips:</h2>
+              <h3>Additional Notes or Tips:</h3>
               <p>Carry warm clothes.</p>
             </div>
           </div>

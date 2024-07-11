@@ -29,7 +29,6 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <header className="home-header">Trippeo</header> */}
       <main className="home">
         <LeftSideBar />
         <Feed />

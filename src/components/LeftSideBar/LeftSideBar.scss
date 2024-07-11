@@ -47,6 +47,10 @@
     justify-content: end;
     gap: 10px;
 
+    @include tablet {
+      gap: 16px;
+    }
+
     @include desktop {
       justify-content: start;
       flex-direction: column;
