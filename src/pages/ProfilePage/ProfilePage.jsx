@@ -1,13 +1,13 @@
-import "./HomePage.scss";
+import "./ProfilePage.scss";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LeftSideBar from "../../components/LeftSideBar/LeftSideBar";
-import Feed from "../../components/Feed/Feed";
+import Profile from "../../components/Profile/Profile";
 import RightSideBar from "../../components/RightSideBar/RightSideBar";
 import Navigation from "../../components/Navigation/Navigation";
 
-const HomePage = () => {
+const ProfilePage = () => {
   const [failedAuth, setFailedAuth] = useState(false);
   const navigate = useNavigate();
 
@@ -28,10 +28,10 @@ const HomePage = () => {
   }
 
   return (
-    <main className="home">
+    <main className="profile">
       <div className="container">
         <LeftSideBar />
-        <Feed />
+        <Profile />
         <RightSideBar />
       </div>
       <Navigation />
@@ -39,4 +39,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ProfilePage;

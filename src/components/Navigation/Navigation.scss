@@ -32,6 +32,12 @@
     align-items: center;
   }
 
+  &__home-nav-link {
+    text-decoration: none;
+    display: flex;
+    cursor: pointer;
+  }
+
   &__icons {
     &--create-story-icon {
       @include desktop {
@@ -85,7 +91,7 @@
   }
 }
 
-.profile {
+.profile-nav {
   @include desktop {
     display: flex;
     align-items: center;
@@ -101,6 +107,11 @@
     @include desktop {
       display: flex;
     }
+  }
+
+  &__menu-link {
+    text-decoration: none;
+    justify-content: end;
   }
 
   &__more {
