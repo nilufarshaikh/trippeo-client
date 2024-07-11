@@ -25,17 +25,16 @@
     justify-content: start;
     right: 0;
     gap: 0.5rem;
-    flex: 2;
+    flex: 1;
     padding: 1rem;
     position: sticky;
-    top: 70px;
-    height: calc(100vh - 103px);
+    top: 0;
+    height: 100vh;
     flex-direction: column;
     z-index: 0;
-  }
-
-  @include desktop {
-    flex: 1;
+    box-shadow: none;
+    border-bottom: none;
+    box-sizing: border-box;
   }
 
   &::-webkit-scrollbar {

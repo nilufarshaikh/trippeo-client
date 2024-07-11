@@ -6,15 +6,19 @@
   position: relative;
   background-color: $secondary-color-2;
   padding-bottom: 48px;
+  overflow-y: auto;
+  box-sizing: border-box;
 
   @include tablet {
     top: 56px;
     padding: 12px 0 60px 0;
-    background-color: #f7f7f7;
+    background-color: $base-color;
   }
 
   @include desktop {
+    top: 0;
     flex: 3.5;
+    padding: 24px 0 16px 0;
   }
 }
 
@@ -29,6 +33,11 @@
     margin: 16px auto;
     border-radius: 8px;
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  @include desktop {
+    width: 50vw;
+    margin: 16px auto;
   }
 
   &__header {

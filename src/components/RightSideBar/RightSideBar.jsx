@@ -7,7 +7,7 @@ const RightSideBar = () => {
       RightSideBar
       <section>Suggested Travelers | Places to Visit</section>
       <section className="card-box">
-        <div className="card">
+        <div className="side-card">
           <img src={travelers} alt="Travelers" />
           <div className="card-title">
             <i className="icon icon-2"></i>

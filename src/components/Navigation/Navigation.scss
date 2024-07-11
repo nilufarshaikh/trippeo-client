@@ -23,11 +23,12 @@
   @include desktop {
     top: 0;
     left: 0;
-    height: 50px;
+    height: 60px;
     justify-content: right;
     gap: 16px;
     border-top: none;
-    border-bottom: 1px solid gray;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid $base-color;
     align-items: center;
   }
 }
@@ -53,6 +54,7 @@
     @include desktop {
       display: flex;
       width: 24rem;
+      border: 1px solid $base-color;
     }
   }
 

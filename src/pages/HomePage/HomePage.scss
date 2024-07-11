@@ -2,11 +2,21 @@
 @use "../../styles/partials/mixins" as *;
 
 .home {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}
+
+.container {
   min-height: 100vh;
 
   @include desktop {
     display: flex;
-    position: relative;
-    top: 70px;
+    margin-top: 60px; /* Space for the fixed navbar */
+    height: calc(100vh - 60px);
+    // display: flex;
+    // position: relative;
   }
 }

@@ -28,14 +28,14 @@ const HomePage = () => {
   }
 
   return (
-    <>
-      <main className="home">
+    <main className="home">
+      <div className="container">
         <LeftSideBar />
         <Feed />
         <RightSideBar />
-      </main>
+      </div>
       <Navigation />
-    </>
+    </main>
   );
 };
 
