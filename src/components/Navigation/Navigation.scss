@@ -31,6 +31,21 @@
     border-bottom: 1px solid $base-color;
     align-items: center;
   }
+
+  &__icons {
+    &--create-story-icon {
+      @include desktop {
+        display: none !important;
+        flex: 0.2;
+      }
+    }
+  }
+
+  &--notifications {
+    @include desktop {
+      flex: 0.2;
+    }
+  }
 }
 
 .search-form {
@@ -39,7 +54,9 @@
     gap: 1rem;
     align-items: center;
     order: -1;
-    margin-right: 15%;
+    margin-left: 15em;
+    flex: 3;
+    justify-content: start;
   }
 
   &__icon {
@@ -74,6 +91,8 @@
     align-items: center;
     gap: 8px;
     padding-right: 1rem;
+    flex: 0.77;
+    justify-content: end;
   }
 
   &__name {

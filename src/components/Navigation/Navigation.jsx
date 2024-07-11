@@ -22,9 +22,7 @@ const Navigation = () => {
         />
         <button className="search-form__button">Search</button>
       </form>
-      <div className="create-story">
-        <AddOutlinedIcon className="navbar__icons create-story__icon" />
-      </div>
+      <AddOutlinedIcon className="navbar__icons navbar__icons--create-story-icon" />
       <NotificationsNoneOutlinedIcon className="navbar__icons" />
       <div className="profile">
         <div className="avatar">
