@@ -38,15 +38,6 @@
     cursor: pointer;
   }
 
-  &__icons {
-    &--create-story-icon {
-      @include desktop {
-        display: none !important;
-        flex: 0.2;
-      }
-    }
-  }
-
   &--notifications {
     @include desktop {
       flex: 0.2;
@@ -190,5 +181,14 @@
         border-radius: 8px 0 0 0;
       }
     }
+  }
+}
+
+.create-story {
+  display: flex;
+
+  @include desktop {
+    display: none !important;
+    flex: 0.2;
   }
 }

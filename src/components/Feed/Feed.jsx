@@ -1,4 +1,4 @@
-import avatar from "../../assets/images/mohan-muruge.jpg";
+import avatar from "../../assets/images/default.jpg";
 import travelerImg from "../../assets/images/abc.jpg";
 import travelerImg2 from "../../assets/images/img2.jpg";
 import travelerImg3 from "../../assets/images/img3.jpg";

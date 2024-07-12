@@ -1,0 +1,65 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.story {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: $secondary-color-2;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-bottom: 48px;
+
+  @include tablet {
+    top: 56px;
+    padding: 12px 0 60px 0;
+    background-color: $base-color;
+  }
+
+  @include desktop {
+    top: 0;
+    flex: 3.5;
+    padding: 0;
+  }
+}
+
+.card {
+  &__fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    padding-bottom: 16px;
+    font-size: 1.1rem;
+  }
+
+  &__control {
+    border: 1px solid $base-color;
+  }
+
+  &__label {
+    margin: 8px 0 4px 0;
+  }
+
+  &__btn-wrapper {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+  }
+
+  &--create-story {
+    border: none;
+  }
+
+  &__btn {
+    width: 135px;
+
+    &--cancel {
+      background-color: white;
+      color: $primary-color-1;
+      border: 1px solid $secondary-color-1;
+    }
+  }
+}

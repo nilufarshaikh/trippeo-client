@@ -5,12 +5,7 @@ import axios from "axios";
 import Gallery from "../Gallery/Gallery";
 
 import travelerImg from "../../assets/images/img0.jpg";
-import travelerImg1 from "../../assets/images/img0.jpg";
-import travelerImg2 from "../../assets/images/img1.jpg";
-import travelerImg3 from "../../assets/images/img2.jpg";
-import travelerImg4 from "../../assets/images/img3.jpg";
-import travelerImg5 from "../../assets/images/img4.jpg";
-import avatar from "../../assets/images/mohan-muruge.jpg";
+import defaultAvatar from "../../assets/images/default.jpg";
 
 const Profile = () => {
   const [photos, setPhotos] = useState([]);
@@ -68,7 +63,7 @@ const Profile = () => {
         <div className="profile-page__avatar">
           <img
             className="profile-page__avatar-img"
-            src={profile.profilePicture}
+            src={profile.profilePicture ?? defaultAvatar}
             alt="Profile"
           />
         </div>

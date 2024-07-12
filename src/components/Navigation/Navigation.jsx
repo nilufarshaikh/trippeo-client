@@ -2,7 +2,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import avatar from "../../assets/images/mohan-muruge.jpg";
+import avatar from "../../assets/images/default.jpg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 
@@ -33,7 +33,9 @@ const Navigation = ({ setCurrentPage }) => {
         />
         <button className="search-form__button">Search</button>
       </form>
-      <AddOutlinedIcon className="navbar__icons navbar__icons--create-story-icon" />
+      <Link className="create-story" to="/stories/add">
+        <AddOutlinedIcon className="navbar__icons create-story__icon" />
+      </Link>
       <NotificationsNoneOutlinedIcon className="navbar__icons" />
       <div className="profile-nav" onClick={toggleDropdown}>
         <div className="profile-nav__wrapper">

@@ -5,11 +5,7 @@ const Gallery = ({ photos }) => {
     <div className="bento-grid">
       {photos.map((photo, index) => (
         <div key={index} className="bento-grid__item">
-          <img
-            className="bento-grid__img"
-            src={`https://res.cloudinary.com/dbzk0hl7u/image/upload/${photo}`}
-            alt=""
-          />
+          <img className="bento-grid__img" src={photo} alt="" />
         </div>
       ))}
     </div>

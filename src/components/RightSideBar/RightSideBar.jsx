@@ -3,7 +3,7 @@ import traveler1 from "../../assets/images/img1.jpg";
 import traveler2 from "../../assets/images/img2.jpg";
 import traveler3 from "../../assets/images/img3.jpg";
 import traveler4 from "../../assets/images/img4.jpg";
-import avatar from "../../assets/images/mohan-muruge.jpg";
+import avatar from "../../assets/images/default.jpg";
 
 const RightSideBar = () => {
   return (

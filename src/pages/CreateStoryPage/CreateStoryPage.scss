@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.home {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}
+
+.container {
+  min-height: 100vh;
+
+  @include desktop {
+    display: flex;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+  }
+}
