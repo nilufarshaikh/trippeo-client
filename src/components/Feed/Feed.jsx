@@ -15,6 +15,7 @@ const Feed = () => {
 
   const [stories, setStories] = useState([]);
   const getAllFeedsURL = `${import.meta.env.VITE_API_URL}/api/stories`;
+  const profileURL = `${import.meta.env.VITE_API_URL}/auth/profile`;
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -44,6 +45,28 @@ const Feed = () => {
 
     return;
   }
+
+  useEffect(() => {
+    const getUsername = async () => {
+      if (!token) {
+        setFailedAuth(true);
+        return;
+      }
+
+      try {
+        const response = await axios.get(profileURL, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        sessionStorage.setItem("username", response.data.data.username);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getUsername();
+  }, [token]);
 
   if (!stories) {
     return <p>Loading...</p>;

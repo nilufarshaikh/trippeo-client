@@ -11,8 +11,9 @@ import "./Navigation.scss";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = ({ setCurrentPage }) => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const username = sessionStorage.getItem("username");
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -47,7 +48,7 @@ const Navigation = ({ setCurrentPage }) => {
           <div className="profile-nav__avatar avatar">
             <img className="avatar__image" src={avatar} alt="Avatar" />
           </div>
-          <span className="profile-nav__name">Laura Nguyen</span>
+          <span className="profile-nav__name">{username}</span>
           <KeyboardArrowDownIcon className="profile-nav__menu" />
           {isOpen && (
             <ul className="profile-nav__menu-list">
