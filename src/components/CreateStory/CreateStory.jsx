@@ -1,15 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./CreateStory.scss";
 
 const CreateStory = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     location: "",
-    placesVisited: "",
+    placesToVisit: "",
     foodsToTry: "",
     bestTimeToVisit: "",
     tips: "",
@@ -31,7 +33,7 @@ const CreateStory = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("submit", formData);
+    const createStoryURL = `${import.meta.env.VITE_API_URL}/api/stories`;
 
     const formDataToSubmit = new FormData();
 
@@ -47,18 +49,14 @@ const CreateStory = () => {
 
     try {
       const token = sessionStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:8080/api/stories",
-        formDataToSubmit,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(createStoryURL, formDataToSubmit, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-      alert("Story submitted successfully");
+      navigate("/profile");
     } catch (error) {
       console.error("There was an error submitting the story:", error);
     }
