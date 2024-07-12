@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.itinerary-add-btn {
+  max-width: 100px;
+}
+
+.activity {
+  font-size: 14px;
+}
+
+.activity-input {
+  display: flex;
+  margin: 4px 0;
+  width: 100%;
+  border: 1px solid $base-color;
+}
+
+.activity-header {
+  color: $primary-color-1;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.activity-notes-label {
+  font-size: 11px;
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import LocationAutocomplete from "../LocationAutocomplete/LocationAutocomplete";
+import ItineraryInput from "../ItineraryInput/ItineraryInput";
 import "./CreateStory.scss";
 
 const CreateStory = () => {
@@ -11,11 +12,11 @@ const CreateStory = () => {
     title: "",
     description: "",
     location: "",
-    placesToVisit: "",
+    placesToVisit: [],
     foodsToTry: "",
     bestTimeToVisit: "",
     tips: "",
-    dayByDayItinerary: "",
+    dayByDayItinerary: [],
     photos: [],
   });
 
@@ -28,13 +29,23 @@ const CreateStory = () => {
     setFormData({ ...formData, photos: e.target.files });
   };
 
+  const handleLocationSelect = (place) => {
+    setFormData({ ...formData, location: place.place_name });
+  };
+
+  const handlePlacesSelect = (place) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      placesToVisit: [...prevState.placesToVisit, place.place_name],
+    }));
+  };
+
   const handleNext = () => setStep(step + 1);
   const handlePrev = () => setStep(step - 1);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const createStoryURL = `${import.meta.env.VITE_API_URL}/api/stories`;
-
     const formDataToSubmit = new FormData();
 
     Object.keys(formData).forEach((key) => {
@@ -42,6 +53,8 @@ const CreateStory = () => {
         for (let i = 0; i < formData.photos.length; i++) {
           formDataToSubmit.append("photos", formData.photos[i]);
         }
+      } else if (key === "dayByDayItinerary") {
+        formDataToSubmit.append(key, JSON.stringify(formData[key]));
       } else {
         formDataToSubmit.append(key, formData[key]);
       }
@@ -55,7 +68,6 @@ const CreateStory = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       navigate("/profile");
     } catch (error) {
       console.error("There was an error submitting the story:", error);
@@ -89,27 +101,21 @@ const CreateStory = () => {
                   <label className="card__label" htmlFor="description">
                     Description
                   </label>
-                  <input
+                  <textarea
                     className="card__control"
                     name="description"
                     id="description"
                     value={formData.description}
                     onChange={handleChange}
-                    placeholder="Enter a short description"
-                  />
+                    placeholder="Enter a description"
+                    rows="4"
+                  ></textarea>
                 </div>
                 <div className="card__fields">
                   <label className="card__label" htmlFor="location">
                     Location
                   </label>
-                  <input
-                    className="card__control"
-                    name="location"
-                    id="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Enter the place you traveled"
-                  />
+                  <LocationAutocomplete onSelect={handleLocationSelect} />
                 </div>
               </div>
             </div>
@@ -147,14 +153,14 @@ const CreateStory = () => {
                   <label className="card__label" htmlFor="placesToVisit">
                     Places to Visit
                   </label>
-                  <input
-                    className="card__control"
-                    name="placesToVisit"
-                    id="placesToVisit"
-                    value={formData.placesToVisit}
-                    onChange={handleChange}
-                    placeholder="Suggest some places to visit"
-                  />
+                  <LocationAutocomplete onSelect={handlePlacesSelect} />
+                  <ul className="card__list-items">
+                    {formData.placesToVisit.map((place, index) => (
+                      <li className="card__list-tag" key={index}>
+                        {place}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <div className="card__fields">
                   <label className="card__label" htmlFor="foodsToTry">
@@ -167,6 +173,18 @@ const CreateStory = () => {
                     value={formData.foodsToTry}
                     onChange={handleChange}
                     placeholder="Suggests some food to try"
+                  />
+                </div>
+                <div className="card__fields">
+                  <label className="card__label">Day-by-Day Itinerary:</label>
+                  <ItineraryInput
+                    itinerary={formData.dayByDayItinerary}
+                    setItinerary={(newItinerary) =>
+                      setFormData({
+                        ...formData,
+                        dayByDayItinerary: newItinerary,
+                      })
+                    }
                   />
                 </div>
                 <div className="card__fields">

@@ -184,3 +184,10 @@ img {
 .show {
   display: flex;
 }
+
+.p-small {
+  @include desktop {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+}

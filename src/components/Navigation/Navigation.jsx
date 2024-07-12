@@ -5,10 +5,11 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import avatar from "../../assets/images/default.jpg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import logo from "../../assets/logo/logo.png";
 
 import "./Navigation.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navigation = ({ setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ const Navigation = ({ setCurrentPage }) => {
 
   return (
     <nav className="navbar">
+      <img src={logo} className="logo-desktop" alt="site logo" />
       <Link className="navbar__home-nav-link" to="/home">
         <HomeOutlinedIcon className="navbar__icons" />
       </Link>
@@ -33,9 +35,9 @@ const Navigation = ({ setCurrentPage }) => {
         />
         <button className="search-form__button">Search</button>
       </form>
-      <Link className="create-story" to="/stories/add">
+      <NavLink className="create-story" to="/stories/add">
         <AddOutlinedIcon className="navbar__icons create-story__icon" />
-      </Link>
+      </NavLink>
       <NotificationsNoneOutlinedIcon className="navbar__icons" />
       <div className="profile-nav" onClick={toggleDropdown}>
         <div className="profile-nav__wrapper">
@@ -45,7 +47,7 @@ const Navigation = ({ setCurrentPage }) => {
           <div className="profile-nav__avatar avatar">
             <img className="avatar__image" src={avatar} alt="Avatar" />
           </div>
-          <span className="profile-nav__name">Mohan Muruge</span>
+          <span className="profile-nav__name">Laura Nguyen</span>
           <KeyboardArrowDownIcon className="profile-nav__menu" />
           {isOpen && (
             <ul className="profile-nav__menu-list">

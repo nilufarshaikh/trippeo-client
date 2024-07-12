@@ -62,4 +62,24 @@
       border: 1px solid $secondary-color-1;
     }
   }
+
+  &__list {
+    font-size: 12px;
+  }
+
+  &__list-tag {
+    background-color: $base-color;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  &__list-items {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
 }
