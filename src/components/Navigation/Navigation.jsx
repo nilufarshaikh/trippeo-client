@@ -9,19 +9,31 @@ import logo from "../../assets/logo/logo.png";
 
 import "./Navigation.scss";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const username = sessionStorage.getItem("username");
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar">
-      <img src={logo} className="logo-desktop" alt="site logo" />
+      <Link
+        className="profile-nav__menu-link profile-nav__menu-link--logo"
+        to="/home"
+      >
+        <img src={logo} className="logo-desktop" alt="site logo" />
+      </Link>
       <Link className="navbar__home-nav-link" to="/home">
         <HomeOutlinedIcon className="navbar__icons" />
       </Link>
@@ -55,7 +67,9 @@ const Navigation = () => {
               <Link className="profile-nav__menu-link" to="/profile">
                 <li className="profile-nav__menu-item">Profile</li>
               </Link>
-              <li className="profile-nav__menu-item">Logout</li>
+              <li className="profile-nav__menu-item" onClick={handleLogout}>
+                Logout
+              </li>
             </ul>
           )}
         </div>

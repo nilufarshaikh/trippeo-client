@@ -68,7 +68,7 @@ const CreateStory = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      navigate("/profile");
+      navigate("/home");
     } catch (error) {
       console.error("There was an error submitting the story:", error);
     }
