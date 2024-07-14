@@ -1,0 +1,42 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.user-card {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 8px 16px 16px 16px;
+  justify-content: space-between;
+  font-size: 14px;
+
+  &:hover {
+    background-color: $base-color;
+  }
+
+  @include tablet {
+    justify-content: normal;
+    gap: 16px;
+    font-size: 16px;
+  }
+
+  @include desktop {
+    flex-direction: column;
+    justify-content: normal;
+    border-right: 1px solid $base-color;
+    margin-top: 8px;
+  }
+
+  &__btn {
+    max-width: 60px;
+    font-size: 12px;
+
+    @include desktop {
+      max-width: 90px;
+      margin: 8px;
+    }
+  }
+
+  &__bio {
+    font-size: 11px;
+  }
+}

@@ -56,9 +56,6 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    order: -1;
-    margin-left: 8.5em;
-    flex: 3;
     justify-content: start;
   }
 
@@ -265,33 +262,21 @@
   }
 }
 
-.user-card {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  align-items: center;
-  text-align: center;
-  margin: 16px;
-
-  &__btn {
-    max-width: 90px;
-    margin: 8px;
-  }
-
-  &__bio {
-    font-size: 11px;
-  }
-}
-
 .search-avatar {
-  width: 80px;
-  height: 80px;
+  width: 36px;
+  height: 36px;
+
+  @include desktop {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .search-close {
-  margin: 8px 16px;
+  padding: 8px 16px;
   text-decoration: underline;
   color: $accent-color-1;
+  border-top: 1px solid $base-color;
 }
 
 .search-inputs {
@@ -314,8 +299,129 @@
     left: 16px;
     right: 16px;
     gap: 8px;
-    /* width: 100%; */
     display: flex;
     align-items: baseline;
+  }
+}
+
+.search-container {
+  position: relative;
+
+  @include desktop {
+    order: -1;
+    margin-left: 8.5em;
+    flex: 3;
+  }
+}
+
+.search-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+}
+
+.search-input.mobile {
+  display: none;
+}
+
+.search-results {
+  background: $secondary-color-2;
+  width: 100%;
+  max-height: 230px;
+  overflow-y: auto;
+  border: 1px solid $base-color;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  @include tablet {
+    top: 154px;
+  }
+
+  @include desktop {
+    width: 80%;
+    top: 58px;
+    position: absolute;
+    padding: 0;
+  }
+
+  &__box {
+    @include desktop {
+      display: flex;
+      width: auto;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+}
+
+.mobile-search-form {
+  flex: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+
+  @include tablet {
+    top: 94px;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex: 0.1;
+  color: $accent-color-1;
+  font-weight: 700;
+  font-size: 11px;
+
+  &--desktop {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+.search-input.desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.search-icon {
+  display: block;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.search-input.mobile {
+  display: block;
+
+  @include desktop {
+    display: none;
   }
 }
