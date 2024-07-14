@@ -111,7 +111,9 @@
   top: -70px;
   background-color: $secondary-color-2;
 
-  // @include desktop {
-  //   background-color: $base-color;
-  // }
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

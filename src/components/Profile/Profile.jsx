@@ -2,13 +2,13 @@ import "./Profile.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Gallery from "../Gallery/Gallery";
+import StoryGallery from "../StoryGallery/StoryGallery";
 
 import travelerImg from "../../assets/images/img0.jpg";
 import defaultAvatar from "../../assets/images/default.jpg";
 
 const Profile = () => {
-  const [photos, setPhotos] = useState([]);
+  const [travelStories, setTravelStories] = useState([]);
   const [failedAuth, setFailedAuth] = useState(false);
   const navigate = useNavigate();
 
@@ -30,9 +30,7 @@ const Profile = () => {
           },
         });
         setProfile(response.data.data);
-        setPhotos(
-          response.data.data.travelStories.flatMap((story) => story.photos)
-        );
+        setTravelStories(response.data.data.travelStories);
       } catch (error) {
         console.log(error);
       }
@@ -50,6 +48,7 @@ const Profile = () => {
     return <p>Loading</p>;
   }
 
+  const photosArray = travelStories.map((story) => story.photos);
   return (
     <section className="profile-page">
       <div className="profile-page__cover">
@@ -88,7 +87,12 @@ const Profile = () => {
         </div>
       </div>
       <div className="profile-content">
-        <Gallery photos={photos} />
+        {photosArray.map((photos, index) => (
+          <StoryGallery
+            key={index}
+            images={photos.map((src) => ({ src, alt: `Image ${index}` }))}
+          />
+        ))}
       </div>
     </section>
   );

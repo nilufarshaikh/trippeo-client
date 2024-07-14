@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.image-carousel {
+  width: 200px;
+  margin: 10px;
+}
+
+.image-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

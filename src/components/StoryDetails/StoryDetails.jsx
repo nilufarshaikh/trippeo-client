@@ -166,13 +166,9 @@ const StoryDetails = ({ story }) => {
               <span>{story?.comments.length} Comments</span>
             </div>
           </div>
-          {showComments && (
-            <>
-              <CommentForm
-                storyId={story._id}
-                onAddComment={handleAddComment}
-              />
-
+          <>
+            <CommentForm storyId={story._id} onAddComment={handleAddComment} />
+            {showComments && (
               <div className="story-comments">
                 <div className="comment-list">
                   {comments.map((comment) => (
@@ -192,8 +188,8 @@ const StoryDetails = ({ story }) => {
                   ))}
                 </div>
               </div>
-            </>
-          )}
+            )}
+          </>
         </div>
       </div>
     </article>
