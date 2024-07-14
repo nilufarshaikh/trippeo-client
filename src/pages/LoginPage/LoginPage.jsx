@@ -72,6 +72,7 @@ const LoginPage = () => {
       const response = await axios.post(loginURL, formData);
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("username", response.data.username);
+      sessionStorage.setItem("userId", response.data.userId);
 
       navigate("/home");
     } catch (err) {

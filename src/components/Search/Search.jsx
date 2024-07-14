@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./Search.scss";
+import Follow from "../Follow/Follow";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,7 +25,7 @@ const Search = () => {
       });
       setSearchResults(response.data);
     } catch (error) {
-      console.error("There was an error submitting the story:", error);
+      console.error(error);
     }
   };
 
@@ -39,7 +40,6 @@ const Search = () => {
       const token = sessionStorage.getItem("token");
       const response = await axios.get(searchUserURL, {
         headers: {
-          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       });
@@ -58,6 +58,8 @@ const Search = () => {
   const handleMobileSearchToggle = () => {
     setIsMobileSearchActive(!isMobileSearchActive);
   };
+
+  console.log(searchResults);
 
   return (
     <div className="search-container">
@@ -115,7 +117,7 @@ const Search = () => {
                     />
                   </div>
                   {user.username}
-                  <button className="user-card__btn">Follow</button>
+                  <Follow followeeId={user._id} followers={user.followers} />
                 </div>
               </div>
             ))}

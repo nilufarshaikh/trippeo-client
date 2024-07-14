@@ -49,7 +49,7 @@ const Navigation = () => {
             <PermIdentityOutlinedIcon className="profile-nav__icon" />
           </Link>
           <div className="profile-nav__avatar avatar">
-            <img className="avatar__image" src={avatar} alt="Avatar" />
+            <PermIdentityOutlinedIcon />
           </div>
           <span className="profile-nav__name">{username}</span>
           <KeyboardArrowDownIcon className="profile-nav__menu" />
