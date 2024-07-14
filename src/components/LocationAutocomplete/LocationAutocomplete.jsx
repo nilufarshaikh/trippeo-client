@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const LocationAutocomplete = ({ onSelect }) => {
-  // console.log(import.meta.env.MAPBOX_ACCESS_TOKEN);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
@@ -11,16 +10,15 @@ const LocationAutocomplete = ({ onSelect }) => {
     setQuery(value);
 
     if (value.length > 2) {
-      const mapboxAccessToken =
-        "pk.eyJ1IjoibmlsdWZhcjI3IiwiYSI6ImNseWl1eXIwdzBpenUya3EyaDI2enl2eHgifQ.x5cCkeFqZwEAuCCooogmdg";
       try {
         const response = await axios.get(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${value}.json`,
           {
             params: {
-              access_token: mapboxAccessToken,
+              access_token: import.meta.env.VITE_MAPBOX_ACCESS_TOKEN,
               autocomplete: true,
               limit: 5,
+              language: "en",
             },
           }
         );

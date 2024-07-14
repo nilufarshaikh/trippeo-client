@@ -1,0 +1,219 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.card {
+  background-color: $secondary-color-2;
+  border-bottom: 1px solid $base-color;
+  padding: 16px;
+
+  @include tablet {
+    width: 70vw;
+    padding: 24px 32px;
+    margin: 16px auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  @include desktop {
+    width: 40vw;
+    margin: 16px auto;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  &__img {
+    margin-top: 0.5rem;
+
+    @include tablet {
+      border-radius: 4px 4px 0 0;
+      margin: 16px 0 12px 0;
+    }
+  }
+
+  &__title {
+    &--stories {
+      font-size: 16px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__see-more {
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__footer {
+    margin-top: 8px;
+  }
+}
+
+.traveler {
+  display: flex;
+  flex-direction: column;
+
+  &__posted-at {
+    color: $primary-color-2;
+    font-weight: 400;
+    line-height: 0.5rem;
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__icon {
+    fill: $primary-color-1 !important;
+  }
+}
+
+.story-details {
+  &__info {
+    margin-top: 8px;
+
+    &--best-time {
+      display: flex;
+      gap: 4px;
+      align-items: baseline;
+
+      @include tablet {
+        flex-direction: column;
+        width: 50%;
+      }
+    }
+
+    &--places {
+      @include tablet {
+        width: 50%;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: end;
+    gap: 8px;
+  }
+
+  &__span-text {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__locations {
+    @include tablet {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}
+
+.photo-carousel {
+  .slick-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  margin: 20px 0;
+}
+
+.itinerary {
+  margin-top: 8px;
+  &__details {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__day {
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__activity {
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  &__day-count {
+    margin-top: 4px;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+}
+
+.story-comments {
+  margin: 16px 0;
+
+  &__form {
+    margin-top: 16px;
+
+    @include tablet {
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+    }
+  }
+
+  &__textarea {
+    border: 1px solid $base-color;
+    width: 100%;
+
+    @include tablet {
+      width: 70%;
+      flex: 1;
+    }
+  }
+
+  &__btn {
+    @include tablet {
+      max-width: 120px;
+      align-self: flex-end;
+      flex: 0.5;
+    }
+  }
+}
+
+.comment-box {
+  display: flex;
+  margin-top: 8px;
+  gap: 8px;
+
+  &__user-info {
+    flex: 1;
+  }
+
+  &__avatar {
+    margin-top: 8px;
+  }
+}
+
+.comment-list {
+  margin-top: 8px;
+}

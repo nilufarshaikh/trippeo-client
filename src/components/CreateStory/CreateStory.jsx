@@ -53,7 +53,7 @@ const CreateStory = () => {
         for (let i = 0; i < formData.photos.length; i++) {
           formDataToSubmit.append("photos", formData.photos[i]);
         }
-      } else if (key === "dayByDayItinerary") {
+      } else if (key === "dayByDayItinerary" || key === "placesToVisit") {
         formDataToSubmit.append(key, JSON.stringify(formData[key]));
       } else {
         formDataToSubmit.append(key, formData[key]);
