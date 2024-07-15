@@ -77,19 +77,13 @@ _Special Considerations_:
 
     **Details**: Fields for commenting on travel stories.
 
-5.  View Other User Profiles:
-
-    **User Story**: As a user, I want to view other user profiles so that I can follow them or check their travel stories.
-
-    **Details**: Display other user's profile picture, stories, followers, following count.
-
-6.  Following and Unfollowing Users:
+5.  Following and Unfollowing Users:
 
     **User Story**: As a user, I want to follow or unfollow other users, so that I can keep up with their travel posts or stop seeing their updates.
 
     **Details**: Follow/unfollow buttons on user profiles and posts.
 
-7.  Search Functionality:
+6.  Search Functionality:
 
     **User Story**: As a user, I want to search for users, so that I can follow them.
 
@@ -134,10 +128,6 @@ _Special Considerations_:
 5. **Home Page (Feed)**: Displays a feed of all travel stories from users the current user follows. Includes comment functionalities. Navigation bar shows Search bar to search for other users.
 
 6. **Create Travel Story Page**: Form for users to create a new travel story with all the specified fields.
-
-7. **Other User's Profile Page**: Displays user information (profile picture, bio, etc.). Shows user’s travel stories. Follow/Unfollow buttons.
-
-8. **404 Not Found Page**: Displayed when a user navigates to a non-existent page.
 
 ### Mockups
 
@@ -184,12 +174,6 @@ _Special Considerations_:
 #### Profile Page
 
 ![Profile Page](mockups/user-profile.png)
-
----
-
-#### Other User's Profile Page
-
-![Other User Profile Page](mockups/other-user-profile.png)
 
 ---
 
