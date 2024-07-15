@@ -15,10 +15,10 @@ const Follow = ({ followeeId, followers }) => {
 
   const followUserURL = `${
     import.meta.env.VITE_API_URL
-  }/auth/${followeeId}/follow`;
+  }/users/${followeeId}/follow`;
   const unfollowUserURL = `${
     import.meta.env.VITE_API_URL
-  }/auth/${followeeId}/unfollow`;
+  }/users/${followeeId}/unfollow`;
 
   const handleFollow = async () => {
     try {

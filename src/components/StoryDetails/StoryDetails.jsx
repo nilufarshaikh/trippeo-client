@@ -14,6 +14,7 @@ const StoryDetails = ({ story }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState(story.comments);
+  const [commentsLength, setCommentsLength] = useState(story.comments.length);
   const loggedInUserId = sessionStorage.getItem("userId");
 
   const handleSeeMore = () => {
@@ -56,6 +57,7 @@ const StoryDetails = ({ story }) => {
 
   const handleAddComment = (allComments) => {
     setComments(allComments);
+    setCommentsLength(allComments.length);
   };
 
   const token = sessionStorage.getItem("token");
@@ -71,6 +73,7 @@ const StoryDetails = ({ story }) => {
         },
       });
       setComments(comments.filter((comment) => comment._id !== commentId));
+      setCommentsLength(comments.length);
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
@@ -182,7 +185,7 @@ const StoryDetails = ({ story }) => {
             </div>
             <div className="stats__info" onClick={handleAddShowComments}>
               <ChatBubbleOutlineOutlinedIcon className="stats__icon" />
-              <span>{story?.comments.length} Comments</span>
+              <span>{commentsLength} Comments</span>
             </div>
           </div>
           <>

@@ -254,9 +254,7 @@ User to TravelStory (Many-to-Many, Comments):
     {
       "message": "User registered successfully",
       "user": {
-        "id": 1,
-        "username": "Jane Doe",
-        "email": "jane.doe@example.com"
+        "id": 1
       }
     }
     ```
@@ -284,7 +282,9 @@ User to TravelStory (Many-to-Many, Comments):
   - Body:
     ```json
     {
-      "token": "{token}"
+      "token": "{token}",
+      "username": John Doe,
+      "userId": 1,
     }
     ```
 
@@ -309,10 +309,11 @@ User to TravelStory (Many-to-Many, Comments):
       "username": "Jane Doe",
       "email": "jane.doe@example.com",
       "bio": "Travel Influencer",
-      "follower_count": 140,
-      "following_count": 110,
-      "story_count": 111,
-      "profile_image_url": "url_to_profile_picture",
+      "location": "Toronto, ON",
+      "profilePicture": "url_to_profile_picture",
+      "followers": [],
+      "following": [],
+      "travelStoriesCount": 10,
       "stories": {
         "id": 1,
         "title": "6 places to see the Northern Lights in Europe",
@@ -501,15 +502,16 @@ User to TravelStory (Many-to-Many, Comments):
   - Body:
     ```json
     {
-      "message": "Comment added successfully",
-      "comment": {
-        "id": 1,
-        "user_id": 1,
-        "story_id": 1,
-        "comment_text": "This is a comment",
-        "created_at": "2023-06-28T10:00:00.000Z",
-        "updated_at": "2023-07-01T10:00:00.000Z"
-      }
+      "comment": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "story_id": 1,
+          "comment_text": "This is a comment",
+          "created_at": "2023-06-28T10:00:00.000Z",
+          "updated_at": "2023-07-01T10:00:00.000Z"
+        }
+      ]
     }
     ```
 
@@ -525,20 +527,14 @@ User to TravelStory (Many-to-Many, Comments):
 
 - **Response**
 
-  - Status: `200 OK`
-  - Body:
-    ```json
-    {
-      "message": "Comment deleted successfully"
-    }
-    ```
+  - Status: `204 No content`
 
 #### 9. Follow a user
 
 - **Request**
 
   - Method: `POST`
-  - Endpoint: `/users/:userId/follow`
+  - Endpoint: `/users/:followeeId/follow`
   - Description: Follow a user
   - Headers:
     - `Authorization: Bearer {token}`
@@ -557,8 +553,8 @@ User to TravelStory (Many-to-Many, Comments):
 
 - **Request**
 
-  - Method: `DELETE`
-  - Endpoint: `/users/:userId/follow`
+  - Method: `POST`
+  - Endpoint: `/users/:followeeId/follow`
   - Description: Unfollow a user
   - Headers:
     - `Authorization: Bearer {token}`

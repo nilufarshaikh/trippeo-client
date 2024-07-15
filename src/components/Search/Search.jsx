@@ -15,7 +15,7 @@ const Search = () => {
     event.preventDefault();
     const searchUserURL = `${
       import.meta.env.VITE_API_URL
-    }/auth/search?query=${searchQuery}`;
+    }/users/search?query=${searchQuery}`;
 
     try {
       const token = sessionStorage.getItem("token");
@@ -36,7 +36,7 @@ const Search = () => {
     setSearchQuery(search);
     const searchUserURL = `${
       import.meta.env.VITE_API_URL
-    }/auth/search?query=${search}`;
+    }/users/search?query=${search}`;
 
     try {
       const token = sessionStorage.getItem("token");
@@ -55,7 +55,6 @@ const Search = () => {
     setIsMobileSearchActive(false);
     setSearchQuery("");
     setSearchResults([]);
-    console.log("here");
     navigate("/home");
   };
 

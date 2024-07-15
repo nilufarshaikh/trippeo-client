@@ -29,8 +29,8 @@ const Profile = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        setProfile(response.data.data);
-        setTravelStories(response.data.data.travelStories);
+        setProfile(response.data.user);
+        setTravelStories(response.data.user.travelStories);
       } catch (error) {
         console.log(error);
       }
