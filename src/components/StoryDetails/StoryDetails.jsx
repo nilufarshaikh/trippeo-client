@@ -1,19 +1,20 @@
 import { React, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import Slider from "react-slick";
-
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import "./StoryDetails.scss";
 import CommentForm from "../CommentForm/CommentForm";
+import axios from "axios";
 
 const StoryDetails = ({ story }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState(story.comments);
+  const loggedInUserId = sessionStorage.getItem("userId");
 
   const handleSeeMore = () => {
     setShowDetails(!showDetails);
@@ -55,6 +56,24 @@ const StoryDetails = ({ story }) => {
 
   const handleAddComment = (allComments) => {
     setComments(allComments);
+  };
+
+  const token = sessionStorage.getItem("token");
+  const handleDeleteComment = async (commentId) => {
+    const deleteCommentURL = `${import.meta.env.VITE_API_URL}/api/stories/${
+      story._id
+    }/comments/${commentId}`;
+
+    try {
+      await axios.delete(deleteCommentURL, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setComments(comments.filter((comment) => comment._id !== commentId));
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+    }
   };
 
   return (
@@ -184,6 +203,12 @@ const StoryDetails = ({ story }) => {
                         <span>{comment.userId.username}</span>
                         <p className="p-small">{comment.comment}</p>
                       </div>
+                      {comment.userId._id === loggedInUserId && (
+                        <DeleteOutlineOutlinedIcon
+                          className="comment-box__delete-icon"
+                          onClick={() => handleDeleteComment(comment._id)}
+                        />
+                      )}
                     </div>
                   ))}
                 </div>

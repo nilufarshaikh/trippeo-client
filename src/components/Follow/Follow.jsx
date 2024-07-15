@@ -28,7 +28,6 @@ const Follow = ({ followeeId, followers }) => {
         },
       });
 
-      console.log(response);
       setIsFollowing(true);
     } catch (error) {
       console.error(error);
@@ -43,7 +42,6 @@ const Follow = ({ followeeId, followers }) => {
         },
       });
 
-      console.log(response);
       setIsFollowing(false);
     } catch (error) {
       console.error(error);

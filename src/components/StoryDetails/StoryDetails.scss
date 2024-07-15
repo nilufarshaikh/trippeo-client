@@ -212,6 +212,11 @@
   &__avatar {
     margin-top: 8px;
   }
+
+  &__delete-icon {
+    align-self: end;
+    width: 20px !important;
+  }
 }
 
 .comment-list {

@@ -3,11 +3,13 @@ import axios from "axios";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./Search.scss";
 import Follow from "../Follow/Follow";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isMobileSearchActive, setIsMobileSearchActive] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
@@ -53,13 +55,13 @@ const Search = () => {
     setIsMobileSearchActive(false);
     setSearchQuery("");
     setSearchResults([]);
+    console.log("here");
+    navigate("/home");
   };
 
   const handleMobileSearchToggle = () => {
     setIsMobileSearchActive(!isMobileSearchActive);
   };
-
-  console.log(searchResults);
 
   return (
     <div className="search-container">
