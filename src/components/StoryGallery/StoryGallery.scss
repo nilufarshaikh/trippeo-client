@@ -2,16 +2,16 @@
 @use "../../styles/partials/mixins" as *;
 
 .image-carousel {
-  margin: 32px 16px;
+  margin: 2rem 1rem;
 
   @include tablet {
-    width: 200px;
-    margin: 10px;
+    width: 12.5rem;
+    margin: 0.625rem;
   }
 }
 
 .image-slide img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }

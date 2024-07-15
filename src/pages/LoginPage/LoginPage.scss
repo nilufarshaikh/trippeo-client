@@ -21,32 +21,32 @@
   }
 
   &__label {
-    margin: 8px 0 4px 0;
+    margin: 0.5rem 0 0.25rem 0;
 
     &--remember {
       display: flex;
       align-items: center;
-      font-size: 11px;
-      margin: 8px 0;
+      font-size: 0.6875rem;
+      margin: 0.5rem 0;
 
       @include tablet {
-        font-size: 12px;
+        font-size: 0.75rem;
       }
     }
   }
 
   &__link {
-    margin: 8px 0;
+    margin: 0.5rem 0;
     color: $primary-color-1;
-    font-size: 11px;
+    font-size: 0.6875rem;
 
     @include tablet {
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
 
   &__create-account {
-    padding-top: 4px;
+    padding-top: 0.25rem;
   }
 }
 
@@ -54,13 +54,13 @@
   text-decoration: none;
 
   &__text {
-    margin-left: 4px;
+    margin-left: 0.25rem;
     color: $primary-color-1;
   }
 
   &__icon {
-    width: 13px !important;
+    width: 0.8125rem !important;
     fill: $primary-color-1 !important;
-    margin: -8px 2px;
+    margin: -0.5rem 2px;
   }
 }

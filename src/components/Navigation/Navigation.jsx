@@ -1,15 +1,14 @@
+import "./Navigation.scss";
+
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import avatar from "../../assets/images/default.jpg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import logo from "../../assets/logo/logo.png";
 
-import "./Navigation.scss";
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Search from "../Search/Search";
 
 const Navigation = () => {

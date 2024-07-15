@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import StoryGallery from "../StoryGallery/StoryGallery";
-
 import travelerImg from "../../assets/images/img0.jpg";
 import defaultAvatar from "../../assets/images/default.jpg";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 
 const Profile = () => {
   const [travelStories, setTravelStories] = useState([]);
@@ -48,7 +48,15 @@ const Profile = () => {
     return <p>Loading</p>;
   }
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  };
+
   const photosArray = travelStories.map((story) => story.photos);
+
   return (
     <section className="profile-page">
       <div className="profile-page__cover">
@@ -71,6 +79,7 @@ const Profile = () => {
           <p className="profile-page__bio">📸 {profile.bio}</p>
           <p className="profile-page__bio">📍 {profile.location}</p>
         </div>
+        <ExitToAppOutlinedIcon className="logout-btn" onClick={handleLogout} />
       </div>
       <div className="profile-tabs">
         <div className="profile-tabs__type">

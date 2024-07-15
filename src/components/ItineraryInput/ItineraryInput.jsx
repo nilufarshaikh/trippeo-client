@@ -31,7 +31,7 @@ const ItineraryInput = ({ itinerary, setItinerary }) => {
     <>
       <div className="activity">
         {itinerary.map((day, dayIndex) => (
-          <div key={dayIndex} style={{ marginBottom: "20px" }}>
+          <div key={dayIndex}>
             <label className="activity-header">Day {day.day}</label>
             <div className="activity">
               <label>Activities:</label>

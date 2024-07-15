@@ -10,14 +10,14 @@
   align-items: center;
   justify-content: space-between;
   display: flex;
-  max-width: 288px;
+  max-width: 18rem;
   height: auto;
 
   &__close {
     fill: $secondary-color-2 !important;
-    width: 15px !important;
-    height: 15px !important;
-    margin-left: 4px;
+    width: 0.9375rem !important;
+    height: 0.9375rem !important;
+    margin-left: 0.25rem;
   }
 
   &__text {

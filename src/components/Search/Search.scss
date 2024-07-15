@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 8px 16px 16px 16px;
+  padding: 0.5rem 1rem 1rem 1rem;
   justify-content: space-between;
   font-size: 14px;
 
@@ -15,28 +15,28 @@
 
   @include tablet {
     justify-content: normal;
-    gap: 16px;
-    font-size: 16px;
+    gap: 1rem;
+    font-size: 1rem;
   }
 
   @include desktop {
     flex-direction: column;
     justify-content: normal;
     border-right: 1px solid $base-color;
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 
   &__btn {
-    max-width: 70px;
-    font-size: 12px;
+    max-width: 4.375rem;
+    font-size: 0.75rem;
 
     @include desktop {
-      max-width: 90px;
-      margin: 8px;
+      max-width: 5.625rem;
+      margin: 0.5rem;
     }
   }
 
   &__bio {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
 }

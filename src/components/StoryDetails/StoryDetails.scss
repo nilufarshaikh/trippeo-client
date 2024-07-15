@@ -4,19 +4,19 @@
 .card {
   background-color: $secondary-color-2;
   border-bottom: 1px solid $base-color;
-  padding: 16px;
+  padding: 1rem;
 
   @include tablet {
     width: 70vw;
-    padding: 24px 32px;
-    margin: 16px auto;
+    padding: 1.5rem 2rem;
+    margin: 1rem auto;
     border-radius: 4px;
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
   }
 
   @include desktop {
     width: 40vw;
-    margin: 16px auto;
+    margin: 1rem auto;
   }
 
   &__header {
@@ -30,29 +30,29 @@
 
     @include tablet {
       border-radius: 4px 4px 0 0;
-      margin: 16px 0 12px 0;
+      margin: 1rem 0 0.75rem 0;
     }
   }
 
   &__title {
     &--stories {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
   &__details {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   &__see-more {
-    font-size: 11px;
+    font-size: 0.6875rem;
     font-weight: 600;
     cursor: pointer;
   }
 
   &__footer {
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 }
 
@@ -69,12 +69,12 @@
 
 .stats {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
 
   &__info {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 0.25rem;
   }
 
   &__icon {
@@ -84,11 +84,11 @@
 
 .story-details {
   &__info {
-    margin-top: 8px;
+    margin-top: 0.5rem;
 
     &--best-time {
       display: flex;
-      gap: 4px;
+      gap: 0.25rem;
       align-items: baseline;
 
       @include tablet {
@@ -107,11 +107,11 @@
   &__item {
     display: flex;
     align-items: end;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   &__span-text {
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 400;
   }
 
@@ -123,7 +123,7 @@
   &__locations {
     @include tablet {
       display: flex;
-      gap: 16px;
+      gap: 1rem;
     }
   }
 }
@@ -137,11 +137,12 @@
     border-radius: 4px;
   }
 
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 .itinerary {
-  margin-top: 8px;
+  margin-top: 0.5rem;
+
   &__details {
     @include tablet {
       display: flex;
@@ -162,21 +163,21 @@
   }
 
   &__day-count {
-    margin-top: 4px;
-    font-size: 13px;
-    margin-bottom: 4px;
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    margin-bottom: 0.25rem;
   }
 }
 
 .story-comments {
-  margin: 16px 0;
+  margin: 1rem 0;
 
   &__form {
-    margin-top: 16px;
+    margin-top: 1rem;
 
     @include tablet {
       display: flex;
-      gap: 16px;
+      gap: 1rem;
       justify-content: space-between;
     }
   }
@@ -193,7 +194,7 @@
 
   &__btn {
     @include tablet {
-      max-width: 120px;
+      max-width: 7.5rem;
       align-self: flex-end;
       flex: 0.5;
     }
@@ -202,23 +203,23 @@
 
 .comment-box {
   display: flex;
-  margin-top: 8px;
-  gap: 8px;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
 
   &__user-info {
     flex: 1;
   }
 
   &__avatar {
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 
   &__delete-icon {
     align-self: end;
-    width: 20px !important;
+    width: 1.25rem !important;
   }
 }
 
 .comment-list {
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }

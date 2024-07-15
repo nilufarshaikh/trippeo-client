@@ -8,11 +8,11 @@
   background-color: $secondary-color-2;
   overflow-y: auto;
   box-sizing: border-box;
-  padding-bottom: 48px;
+  padding-bottom: 3rem;
 
   @include tablet {
-    top: 56px;
-    padding: 12px 0 60px 0;
+    top: 3.5rem;
+    padding: 0.75rem 0 3.75rem 0;
     background-color: $base-color;
   }
 
@@ -30,7 +30,7 @@
   }
 
   &__title {
-    padding-bottom: 16px;
+    padding-bottom: 1rem;
     font-size: 1.1rem;
   }
 
@@ -39,13 +39,13 @@
   }
 
   &__label {
-    margin: 8px 0 4px 0;
+    margin: 0.5rem 0 0.25rem 0;
   }
 
   &__btn-wrapper {
-    margin-top: 24px;
+    margin-top: 1.5rem;
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     justify-content: end;
   }
 
@@ -54,7 +54,7 @@
   }
 
   &__btn {
-    width: 135px;
+    width: 8.4375rem;
 
     &--cancel {
       background-color: white;
@@ -64,25 +64,25 @@
   }
 
   &__list {
-    font-size: 12px;
+    font-size: 0.75rem;
     cursor: pointer;
-    padding: 4px 8px;
-    margin-top: 4px;
+    padding: 0.25rem 0.5rem;
+    margin-top: 0.25rem;
   }
 
   &__list-tag {
     background-color: $base-color;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 12px;
-    margin-top: 4px;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
   }
 
   &__list-items {
     display: flex;
     list-style: none;
     padding-left: 0;
-    gap: 8px;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
 }
