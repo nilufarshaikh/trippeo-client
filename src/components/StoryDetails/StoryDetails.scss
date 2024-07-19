@@ -54,6 +54,13 @@
   &__footer {
     margin-top: 0.5rem;
   }
+
+  &__text-info {
+    color: $accent-color-1;
+    font-size: 12px;
+    margin-left: 12px;
+    margin-top: 16px;
+  }
 }
 
 .traveler {

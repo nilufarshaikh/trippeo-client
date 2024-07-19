@@ -68,6 +68,7 @@ const CreateStory = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      alert("Story created successfully!");
       navigate("/home");
     } catch (error) {
       console.error("There was an error submitting the story:", error);
@@ -189,7 +190,7 @@ const CreateStory = () => {
                 </div>
                 <div className="card__fields">
                   <label className="card__label" htmlFor="tips">
-                    Tips and Notes
+                    Tips or Notes
                   </label>
                   <textarea
                     className="card__control"
@@ -201,7 +202,6 @@ const CreateStory = () => {
                     placeholder="Enter some tips or notes"
                   ></textarea>
                 </div>
-                {/* ITINERARY */}
               </div>
             </div>
             <div className="card__btn-wrapper">
@@ -223,6 +223,9 @@ const CreateStory = () => {
             </div>
             <div className="card__body">
               <div className="card__content">
+                <p className="card__text-info">
+                  Note: Maximum 5 photos allowed, each up to 5MB, formats: JPEG.
+                </p>
                 <input type="file" multiple onChange={handleFileChange} />
               </div>
             </div>

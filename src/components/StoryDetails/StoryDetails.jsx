@@ -58,6 +58,7 @@ const StoryDetails = ({ story }) => {
   const handleAddComment = (allComments) => {
     setComments(allComments);
     setCommentsLength(allComments.length);
+    setShowComments(true);
   };
 
   const token = sessionStorage.getItem("token");
@@ -72,8 +73,12 @@ const StoryDetails = ({ story }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setComments(comments.filter((comment) => comment._id !== commentId));
-      setCommentsLength(comments.length);
+
+      const filteredComments = comments.filter(
+        (comment) => comment._id !== commentId
+      );
+      setComments(filteredComments);
+      setCommentsLength(filteredComments.length);
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
@@ -131,7 +136,7 @@ const StoryDetails = ({ story }) => {
                 </span>
               </div>
               <div className="story-details__info story-details__info--places">
-                <h3>Places to see:</h3>
+                <h3>Places to visit:</h3>
                 <ul className="p-small story-details__list">
                   {story.placesToVisit.map((place, index) => (
                     <li key={index} className="story-details__item">
