@@ -36,6 +36,39 @@ const Feed = () => {
     fetchTravelStories();
   }, []);
 
+  const addComment = async (storyId, newComment) => {
+    const addCommentURL = `${
+      import.meta.env.VITE_API_URL
+    }/api/stories/${storyId}/comments`;
+    const token = sessionStorage.getItem("token");
+
+    try {
+      const response = await axios.post(
+        addCommentURL,
+        { comment: newComment },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleAddComment = async (storyId, newComment) => {
+    console.log("storyId getting updated", storyId);
+    const updatedComments = await addComment(storyId, newComment);
+    setStories(
+      stories.map((story) =>
+        story._id === storyId ? { ...story, comments: updatedComments } : story
+      )
+    );
+  };
+
   if (!stories) {
     return <p>Loading...</p>;
   }
@@ -43,7 +76,11 @@ const Feed = () => {
   return (
     <section className="feed">
       {stories.map((story) => (
-        <StoryDetails key={story._id} story={story} />
+        <StoryDetails
+          key={story._id}
+          story={story}
+          onAddComment={handleAddComment}
+        />
       ))}
     </section>
   );

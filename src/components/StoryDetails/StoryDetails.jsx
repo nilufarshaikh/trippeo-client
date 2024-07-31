@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -10,11 +10,10 @@ import "./StoryDetails.scss";
 import CommentForm from "../CommentForm/CommentForm";
 import axios from "axios";
 
-const StoryDetails = ({ story }) => {
+const StoryDetails = ({ story, onAddComment }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showComments, setShowComments] = useState(false);
-  const [comments, setComments] = useState(story.comments);
-  const [commentsLength, setCommentsLength] = useState(story.comments.length);
+  const [comments, setComments] = useState(story.comments || []);
   const loggedInUserId = sessionStorage.getItem("userId");
 
   const handleSeeMore = () => {
@@ -46,6 +45,10 @@ const StoryDetails = ({ story }) => {
     }
   };
 
+  useEffect(() => {
+    setComments(story.comments);
+  }, [story]);
+
   const settings = {
     dots: true,
     infinite: story.photos.length > 1,
@@ -55,10 +58,8 @@ const StoryDetails = ({ story }) => {
     arrows: false,
   };
 
-  const handleAddComment = (allComments) => {
-    setComments(allComments);
-    setCommentsLength(allComments.length);
-    setShowComments(true);
+  const handleAddComment = async (storyId, newComment) => {
+    const updatedComments = await onAddComment(storyId, newComment);
   };
 
   const token = sessionStorage.getItem("token");
@@ -190,35 +191,36 @@ const StoryDetails = ({ story }) => {
             </div>
             <div className="stats__info" onClick={handleAddShowComments}>
               <ChatBubbleOutlineOutlinedIcon className="stats__icon" />
-              <span>{commentsLength} Comments</span>
+              <span>{comments && comments.length} Comments</span>
             </div>
           </div>
           <>
-            <CommentForm storyId={story._id} onAddComment={handleAddComment} />
+            <CommentForm onAddComment={handleAddComment} storyId={story._id} />
             {showComments && (
               <div className="story-comments">
                 <div className="comment-list">
-                  {comments.map((comment) => (
-                    <div key={comment._id} className="comment-box">
-                      <div className="avatar avatar--feed comment-box__avatar">
-                        <img
-                          className="avatar__image"
-                          src={comment.userId.profilePicture}
-                          alt="Profile photo"
-                        />
+                  {comments &&
+                    comments.map((comment) => (
+                      <div key={comment._id} className="comment-box">
+                        <div className="avatar avatar--feed comment-box__avatar">
+                          <img
+                            className="avatar__image"
+                            src={comment.userId.profilePicture}
+                            alt="Profile photo"
+                          />
+                        </div>
+                        <div className="comment-box__user-info">
+                          <span>{comment.userId.username}</span>
+                          <p className="p-small">{comment.comment}</p>
+                        </div>
+                        {comment.userId._id === loggedInUserId && (
+                          <DeleteOutlineOutlinedIcon
+                            className="comment-box__delete-icon"
+                            onClick={() => handleDeleteComment(comment._id)}
+                          />
+                        )}
                       </div>
-                      <div className="comment-box__user-info">
-                        <span>{comment.userId.username}</span>
-                        <p className="p-small">{comment.comment}</p>
-                      </div>
-                      {comment.userId._id === loggedInUserId && (
-                        <DeleteOutlineOutlinedIcon
-                          className="comment-box__delete-icon"
-                          onClick={() => handleDeleteComment(comment._id)}
-                        />
-                      )}
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             )}

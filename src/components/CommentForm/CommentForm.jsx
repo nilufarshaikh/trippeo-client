@@ -1,43 +1,27 @@
 import { useState } from "react";
-import axios from "axios";
 
-const CommentForm = ({ storyId, onAddComment }) => {
-  const [comment, setComment] = useState("");
+const CommentForm = ({ onAddComment, storyId }) => {
+  const [newComment, setNewComment] = useState("");
 
-  const handleAddComments = async (e) => {
+  const handleSubmitComment = async (e) => {
     e.preventDefault();
 
-    const addCommentURL = `${
-      import.meta.env.VITE_API_URL
-    }/api/stories/${storyId}/comments`;
-    const token = sessionStorage.getItem("token");
-    const newComment = {
-      comment: e.target.comment.value,
-    };
-
-    try {
-      const response = await axios.post(addCommentURL, newComment, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setComment("");
-      onAddComment(response.data);
-    } catch (err) {
-      console.log(err);
+    if (newComment.trim()) {
+      onAddComment(storyId, newComment);
+      setNewComment("");
     }
   };
 
   return (
-    <form className="story-comments__form" onSubmit={handleAddComments}>
+    <form className="story-comments__form" onSubmit={handleSubmitComment}>
       <textarea
         type="text"
         name="comment"
         id="comment"
         placeholder="Add a comment..."
         className="story-comments__textarea"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
       <button className="story-comments__btn">Add</button>
     </form>
